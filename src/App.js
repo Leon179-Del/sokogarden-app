@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Getproducts from './components/Getproducts';
+import Addproducts from './components/Addproducts';
+import Signup from './components/Signup';
+import Signin from './components/Signin';
+import Notfound from './components/Notfound';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+       <header className="App-header">
+        <h1>Welcome To sokogarden</h1>
+       </header>
+       {/* Below are our different routes together with the rendered components */}
+       <Routes>
+        <Route path='/' element={<Getproducts />} />
+        <Route path='/addproducts' elements={<Addproducts />} />
+        <Route path='/signup' elements={<Signup />} />
+        <Route path='/signin' elements={<Signin />} />
+        <Route path='#' elements={<Notfound />} />
+       </Routes>
+     </div>
+    </Router>
+
   );
 }
 
